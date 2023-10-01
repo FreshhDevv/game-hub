@@ -8,7 +8,8 @@ To get started with GameHub, follow these steps:
 3) Get a RAWG API key at https://rawg.io/apidocs. You'll have to create an account first.
 4) Add the API key to src/services/api-client.ts
 5) Run npm run dev to start the web server.
-
-
-
-
+### Tools Used.
+1) React
+2) Typescript
+3) Zod for validation
+4) Chakra UI
