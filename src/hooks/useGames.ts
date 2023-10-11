@@ -17,20 +17,21 @@ export interface Game {
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
-    queryFn: ({ pageParam = 1}) =>
+    queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
           genres: gameQuery.genre?.id,
           parent_platforms: gameQuery.platform?.id,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
-          page: pageParam
+          page: pageParam,
         },
       }),
-      getNextPageParam: (lastPage, allPages) => {
-        // allPages contains the data for each page we have retrieved
-        return lastPage ? allPages.length + 1 : undefined
-      }
+    getNextPageParam: (lastPage, allPages) => {
+      // allPages contains the data for each page we have retrieved
+      return lastPage ? allPages.length + 1 : undefined;
+    },
+    staleTime: 24 * 60 * 60 * 1000, //24hrs
   });
 
 export default useGames;
