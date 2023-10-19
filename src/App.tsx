@@ -8,14 +8,15 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import useGameQueryStore from "./store";
 
 // undefined: the absence of a value
 // null: the intentional absence of a value
 
-
-
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  // const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const { gameQuery, setSearchText, setGenreId, setPlatformId, setSortOrder } =
+    useGameQueryStore();
 
   return (
     <Grid
@@ -29,9 +30,7 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar
-          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
-        />
+        <NavBar />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
