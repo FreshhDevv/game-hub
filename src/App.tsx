@@ -15,8 +15,8 @@ import useGameQueryStore from "./store";
 
 function App() {
   // const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const { gameQuery, setSearchText, setGenreId, setPlatformId, setSortOrder } =
-    useGameQueryStore();
+  // const { gameQuery, setSearchText, setGenreId, setPlatformId, setSortOrder } =
+  //   useGameQueryStore();
 
   return (
     <Grid
@@ -45,10 +45,6 @@ function App() {
               <PlatformSelector />
             </Box>
             <SortSelector
-              sortOrder={gameQuery.sortOrder}
-              onSelectSortOrder={(sortOrder) =>
-                setGameQuery({ ...gameQuery, sortOrder })
-              }
             />
           </Flex>
         </Box>
