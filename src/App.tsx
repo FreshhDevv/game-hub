@@ -2,22 +2,14 @@ import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { useState } from "react";
-import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
-import useGameQueryStore from "./store";
 
 // undefined: the absence of a value
 // null: the intentional absence of a value
 
 function App() {
-  // const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  // const { gameQuery, setSearchText, setGenreId, setPlatformId, setSortOrder } =
-  //   useGameQueryStore();
-
   return (
     <Grid
       templateAreas={{
@@ -44,11 +36,10 @@ function App() {
             <Box marginRight={5}>
               <PlatformSelector />
             </Box>
-            <SortSelector
-            />
+            <SortSelector />
           </Flex>
         </Box>
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid />
       </GridItem>
     </Grid>
   );
